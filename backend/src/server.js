@@ -1,8 +1,15 @@
 import { createApp } from "./app.js";
 import { connectDb } from "./config/db.js";
+import dotenv from "dotenv";
 
-const PORT = 8000;
-const DB_URI = "mongodb://mongodb:27017";
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config({
+    path: ".env.development",
+  });
+}
+
+const PORT = process.env.PORT || 8000;
+const DB_URI = process.env.MONGO_URI;
 
 (async () => {
   try {
@@ -18,7 +25,6 @@ const DB_URI = "mongodb://mongodb:27017";
       console.error("Server error:", err);
       process.exit(1);
     });
-
   } catch (error) {
     console.error("Cannot start application:", error);
     process.exit(1);

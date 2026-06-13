@@ -1,6 +1,8 @@
 services:
   backend:
     build: .
+    env_file:
+      - /opt/apps/config/backend.env
     ports:
       - "8000:8000"
     depends_on:

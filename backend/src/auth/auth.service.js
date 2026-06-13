@@ -20,3 +20,19 @@ export async function registerService(user) {
 
   return createdUser;
 }
+
+export async function loginService(email) {
+
+  if(!email) {
+    throw new ApiError(400, "email is required");
+  }
+
+  const user = await userModel.find({email}).lean();
+
+  if(!user) {
+    throw new ApiError(400, "user not found access denied");
+  }
+
+  return user;
+
+}

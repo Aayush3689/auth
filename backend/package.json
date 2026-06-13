@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "dev": "cross-env node_env=development nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +13,10 @@
   "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongoose": "^9.6.3"
+    "mongoose": "^9.6.3",
+    "nodemon": "^3.1.14"
   }
 }

@@ -1,5 +1,10 @@
 import express from "express";
+import path from 'path'
+import {fileURLToPath} from 'url'
 import { registerRoutes } from "./loader/routes.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export const createApp = () => {
   const app = express();
@@ -12,10 +17,7 @@ export const createApp = () => {
   registerRoutes(app);
 
   app.get("/", (rea, res) => {
-    res.status(200).json({
-      success: true,
-      message: "Welcome to the server successfully connected github actions",
-    });
+    res.sendFile(path.join(__dirname, "../public/index.html"))
   });
 
   app.get("/health", (req, res) => {
