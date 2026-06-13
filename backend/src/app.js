@@ -14,7 +14,7 @@ export const createApp = () => {
   app.get("/", (rea, res) => {
     res.status(200).json({
       success: true,
-      message: "Welcome to the server",
+      message: "Welcome to the server successfully connected github actions",
     });
   });
 
