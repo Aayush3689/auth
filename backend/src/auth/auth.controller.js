@@ -1,5 +1,4 @@
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { userModel } from "./auth.model.js";
 import { loginService, registerService } from "./auth.service.js";
 
 export async function handleRegister(req, res) {
@@ -28,8 +27,8 @@ export async function handleRegister(req, res) {
         new ApiResponse(
           statusCode,
           null,
-          error.message || "Internal Server Error",
-        ),
+          error.message || "Internal Server Error"
+        )
       );
   }
 }
@@ -44,14 +43,13 @@ export async function handleLogin(req, res) {
   }
 
   try {
-
     const user = await loginService(email);
 
     if (!user) {
       return res
         .status(404)
         .json(
-          new ApiResponse(404, null, "User does not exist permission denied"),
+          new ApiResponse(404, null, "User does not exist permission denied")
         );
     }
 
@@ -68,8 +66,8 @@ export async function handleLogin(req, res) {
         new ApiResponse(
           statusCode,
           null,
-          error.message || "Internal Server Error",
-        ),
+          error.message || "Internal Server Error"
+        )
       );
   }
 }

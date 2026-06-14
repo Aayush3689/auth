@@ -5,7 +5,7 @@ export const connectDb = async (uri) => {
     throw new Error("mongo uri is required");
   }
 
-  console.log('uri', uri);
+  console.log("uri", uri);
 
   try {
     await mongoose.connect(uri, {

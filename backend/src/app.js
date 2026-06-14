@@ -1,6 +1,6 @@
 import express from "express";
-import path from 'path'
-import {fileURLToPath} from 'url'
+import path from "path";
+import { fileURLToPath } from "url";
 import { registerRoutes } from "./loader/routes.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +17,7 @@ export const createApp = () => {
   registerRoutes(app);
 
   app.get("/", (rea, res) => {
-    res.sendFile(path.join(__dirname, "../public/index.html"))
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
   app.get("/health", (req, res) => {

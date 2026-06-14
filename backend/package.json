@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "cross-env node_env=development nodemon src/server.js"
+    "dev": "cross-env node_env=development nodemon src/server.js",
+    "lint": "eslint .",
+    "formate:check": "prettier . --check",
+    "formate": "prettier . --write",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +22,12 @@
     "express": "^5.2.1",
     "mongoose": "^9.6.3",
     "nodemon": "^3.1.14"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.5.0",
+    "globals": "^17.6.0",
+    "jest": "^30.4.2",
+    "prettier": "^3.8.4"
   }
 }
